@@ -11,8 +11,9 @@ const ContactUs = () => {
         uname: '',
         email: '',
         phone: '',
-        message: '', // Added message state
+        message: '',
     });
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -37,21 +38,35 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="bg-custom-gradient h-[100vh]">
-            <nav className='flex flex-row'>
+        <div className="bg-custom-gradient min-h-screen">
+            <nav className='flex items-center justify-between p-5 md:ml-10'>
                 <Link href="/">
-                <div className='flex flex-row ml-10 pt-5'>
-                    <img src={logoImage} alt="BluBee Logo" className='w-12 h-12 mr-1' />
-                    <h1><span className='text-5xl font-bold'>BluBee</span><span className='text-3xl'>.AI</span></h1>
-                </div>
+                    <div className='flex items-center'>
+                        <img src={logoImage} alt="BluBee Logo" className='w-12 h-12 mr-1' />
+                        <h1>
+                            <span className='text-3xl md:text-5xl font-bold'>BluBee</span>
+                            <span className='text-xl md:text-3xl'>.AI</span>
+                        </h1>
+                    </div>
                 </Link>
-                <div className='space-x-10 text-xl font-medium pt-7 ml-auto mr-10'>
-                    <Link href="/">Home</Link>
-                    <Link href="/contact" className='font-extrabold'>Contact Us</Link>
-                    <Link href="/about">About Us</Link>
+                <div className='md:hidden'>
+                    <button onClick={() => setMenuOpen(!menuOpen)} className='text-white focus:outline-none'>
+                        <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                            {menuOpen ? (
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
+                            ) : (
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 6h16M4 12h16M4 18h16' />
+                            )}
+                        </svg>
+                    </button>
+                </div>
+                <div className={`md:flex ${menuOpen ? 'block' : 'hidden'} md:space-x-10 text-lg md:text-xl font-medium`}>
+                    <Link href="/" className='block py-2 md:py-0'>Home</Link>
+                    <Link href="/contact" className='block py-2 md:py-0 font-extrabold'>Contact Us</Link>
+                    <Link href="/about" className='block py-2 md:py-0'>About Us</Link>
                 </div>
             </nav>
-            <div className="w-[60%] mx-auto space-y-8 my-20">
+            <div className="w-full md:w-[60%] mx-auto space-y-8 my-20 p-5">
                 <h1 className="text-4xl font-semibold text-center">Contact Us</h1>
                 <form onSubmit={handleSubmit} className="space-y-8">
                     <div className="space-y-3">
@@ -63,7 +78,7 @@ const ContactUs = () => {
                             value={formData.uname}
                             onChange={handleChange}
                             placeholder="e.g., John Hammond"
-                            className="px-5 py-2 rounded-xl w-[35%]"
+                            className="px-5 py-2 rounded-xl w-full xl:w-[45%]"
                             required
                         /><br />
                     </div>
@@ -76,7 +91,7 @@ const ContactUs = () => {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="e.g., john@example.com"
-                            className="px-5 py-2 rounded-xl w-[35%]"
+                            className="px-5 py-2 rounded-xl w-full xl:w-[45%]"
                             required
                         /><br />
                     </div>
@@ -89,7 +104,7 @@ const ContactUs = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="e.g., +91123456789"
-                            className="px-5 py-2 rounded-xl w-[35%]"
+                            className="px-5 py-2 rounded-xl w-full xl:w-[45%]"
                         /><br />
                     </div>
                     <div className="space-y-3">
@@ -100,7 +115,7 @@ const ContactUs = () => {
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Type your message here..."
-                            className="px-5 py-2 rounded-xl w-[35%] h-32"
+                            className="px-5 py-2 rounded-xl w-full xl:w-[45%] h-32"
                             required
                         ></textarea><br />
                     </div>
