@@ -8,11 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "engines": {
-    "node": "18.17.1"
-  },
   "dependencies": {
     "@supabase/supabase-js": "^2.43.4",
+    "framer-motion": "^11.2.11",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18"
