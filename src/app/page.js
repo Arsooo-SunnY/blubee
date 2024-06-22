@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -29,9 +30,15 @@ export default function Home() {
     }
   };
 
+  const menuVariants = {
+    hidden: { opacity: 0, x: '100%' },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
-    <div className="bg-cover bg-center min-h-screen" style={{ backgroundImage: `url(${bgImage})` }}>
-      <nav className='flex items-center justify-between p-5 md:ml-10'>
+    <div className="bg-cover bg-center min-h-screen relative" style={{ backgroundImage: `url(${bgImage})` }}>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <nav className='relative flex items-center justify-between p-5 md:ml-10 z-10'>
         <div className='flex items-center'>
           <img src={logoImage} alt="BluBee Logo" className='w-12 h-12 mr-1' />
           <h1>
@@ -50,13 +57,32 @@ export default function Home() {
             </svg>
           </button>
         </div>
-        <div className={`md:flex ${menuOpen ? 'block' : 'hidden'} md:space-x-10 text-lg md:text-xl font-medium text-white`}>
+        <div className={`hidden md:flex md:space-x-10 text-lg md:text-xl font-medium text-white`}>
           <Link href="/" className='block py-2 md:py-0 font-extrabold'>Home</Link>
           <Link href="/contact" className='block py-2 md:py-0'>Contact Us</Link>
-          <Link href="/about" className='block py-2 md:py-0'>About Us</Link>
+          <Link href="/about" className='block py-2 md:py-0'>Founders Note</Link>
         </div>
       </nav>
-      <div className='flex flex-col md:flex-row mt-10 md:mt-20 p-5'>
+      {menuOpen && (
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={menuVariants}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          className='fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-700 bg-opacity-90 text-white text-2xl'
+        >
+          <button onClick={() => setMenuOpen(false)} className='absolute top-5 right-5 text-white focus:outline-none'>
+            <svg className='w-8 h-8' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
+            </svg>
+          </button>
+          <Link href="/" className='py-2' onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/contact" className='py-2' onClick={() => setMenuOpen(false)}>Contact Us</Link>
+          <Link href="/about" className='py-2' onClick={() => setMenuOpen(false)}>Founders Note</Link>
+        </motion.div>
+      )}
+      <div className='relative z-10 flex flex-col md:flex-row mt-10 md:mt-20 p-5'>
         <div>
           <div className='mb-10'>
             <h1 className='text-4xl md:text-6xl font-bold text-white mb-5'>LAUNCHING SOON</h1>
