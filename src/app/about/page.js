@@ -2,10 +2,16 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { motion, AnimatePresence } from 'framer-motion';
 
 const AboutUs = () => {
     const logoImage = './BluBee.png';
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const menuVariants = {
+        hidden: { opacity: 0, x: '100%' },
+        visible: { opacity: 1, x: 0 },
+    };
 
     return (
         <div className="bg-custom-gradient min-h-screen">
@@ -30,12 +36,37 @@ const AboutUs = () => {
                         </svg>
                     </button>
                 </div>
-                <div className={`md:flex ${menuOpen ? 'block' : 'hidden'} md:space-x-10 text-lg md:text-xl font-medium`}>
+                <div className={`md:flex hidden md:space-x-10 text-lg md:text-xl font-medium`}>
                     <Link href="/" className='block py-2 md:py-0'>Home</Link>
                     <Link href="/contact" className='block py-2 md:py-0'>Contact Us</Link>
-                    <Link href="/about" className='block py-2 md:py-0 font-extrabold'>About Us</Link>
+                    <Link href="/about" className='block py-2 md:py-0 font-extrabold'>Founders Note</Link>
                 </div>
             </nav>
+
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={menuVariants}
+                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                        className='fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-700 bg-opacity-90 text-white text-2xl'
+                    >
+                        <button onClick={() => setMenuOpen(false)} className="absolute top-4 right-4 text-white">
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <div className="space-y-8 text-center text-white text-2xl">
+                            <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link><br/><br/>
+                            <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link><br/><br/>
+                            <Link href="/about" onClick={() => setMenuOpen(false)}>Founders Note</Link><br/><br/>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             <div className="w-full md:w-[80vw] mx-auto py-20 px-5 md:px-0 font-medium text-lg">
                 <h1 className="text-center text-3xl md:text-4xl font-semibold mb-10">Founder's Note</h1>
                 <span className="font-semibold text-2xl block md:text-3xl">Hello!</span>
