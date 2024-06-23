@@ -90,9 +90,9 @@ const ContactUs = () => {
                                 </svg>
                             </button>
                             <div className="space-y-8 text-center text-white text-2xl">
-                                <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-                                <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link>
-                                <Link href="/about" onClick={() => setMenuOpen(false)}>Founders Note</Link>
+                                <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link><br/><br/>
+                                <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link><br/><br/>
+                                <Link href="/about" onClick={() => setMenuOpen(false)}>Founders Note</Link><br/><br/>
                             </div>
                         </motion.div>
                     )}
