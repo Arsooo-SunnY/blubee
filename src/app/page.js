@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <div className="bg-cover bg-center min-h-screen relative" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      <nav className='relative flex items-center justify-between p-5 md:ml-10 z-10'>
+      <nav className='relative flex items-center justify-between p-4 z-10'>
         <div className='flex items-center'>
           <img src={logoImage} alt="BluBee Logo" className='w-12 h-12 mr-1' />
           <h1>
