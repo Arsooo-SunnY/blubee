@@ -86,8 +86,7 @@ export default function Home() {
         <div>
           <div className='mb-10'>
             <h1 className='text-4xl md:text-6xl font-bold text-white mb-5'>LAUNCHING SOON</h1>
-            <p className='text-white font-medium text-lg md:text-xl'>An <span className='text-yellow-500'>AI-powered</span> career partner</p>
-            <p className='text-white font-medium text-lg md:text-xl'>Your co-working partner</p>
+            <p className='text-white font-medium text-lg md:text-xl'>Your <span className='text-yellow-500'>AI-powered</span> career partner</p>
           </div>
           <form onSubmit={handleSubmit} className='space-y-5'>
             <input
@@ -97,7 +96,7 @@ export default function Home() {
               onChange={(e) => setEmail(e.target.value)}
               className='px-5 py-3 md:py-5 rounded-lg w-full md:w-96 bg-[#EEEEEE] placeholder-[#524C42]'
               required
-            /><br/>
+            /><br />
             <button type='submit' className='bg-blue-600 text-white font-medium px-10 py-3 rounded-full text-lg md:text-2xl'>JOIN THE WAITLIST</button>
             <h4 className='text-white font-medium text-lg md:text-xl'>So, what are you waiting for?</h4>
             <p className='text-white w-full md:w-80 font-medium'>{message}</p>
@@ -113,7 +112,7 @@ export default function Home() {
           </ul>
           <div className='flex items-center justify-center mt-5'>
             <iframe
-              src="https://www.youtube.com/embed/2Cr-1nMpPYA?controls=0&showinfo=0&fs=1&iv_load_policy=3&modestbranding=0"
+              src="https://www.youtube.com/embed/2Cr-1nMpPYA?controls=0&showinfo=0&fs=1&iv_load_policy=3&modestbranding=0&rel=0"
               allowFullScreen
               title="Embedded YouTube Video"
               className='w-full md:w-[50%] h-[25vh] rounded-xl'
