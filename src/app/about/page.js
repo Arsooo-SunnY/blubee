@@ -16,7 +16,7 @@ const AboutUs = () => {
     return (
         <div className="bg-custom-gradient">
             <div className="bg-black bg-opacity-50 text-white min-h-screen">
-                <nav className='flex items-center justify-between p-5 md:ml-10'>
+                <nav className='flex items-center justify-between p-4'>
                     <Link href="/">
                         <div className='flex items-center'>
                             <img src={logoImage} alt="BluBee Logo" className='w-12 h-12 mr-1' />
@@ -70,8 +70,8 @@ const AboutUs = () => {
 
                 <div className="w-full md:w-[80vw] mx-auto py-20 px-5 md:px-0 font-medium text-lg">
                     <h1 className="text-center text-3xl md:text-4xl font-semibold mb-10">Founder's Note</h1>
-                    <span className="font-semibold text-2xl block md:text-3xl">Hello!</span>
-                    <br /><br />
+                    <span className="font-semibold text-lg block md:text-lg">Hello!</span>
+                    <br />
                     Welcome to BluBee.ai, where your career aspirations take flight with the help of cutting-edge AI technology. My name is Sunny Chawla, and I am the founder of BluBee.ai with a prime vision: to empower oneself to navigate through the career path with confidence and ease.
                     <br /><br />
                     Having navigated many twists and turns in my own professional journey, I understand the challenges and uncertainties that come with career progression. That’s why at BluBee.ai, we are passionate about offering personalized, AI-driven solutions that help demystify the job market and align skills with fulfilling opportunities.
