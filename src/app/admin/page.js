@@ -47,7 +47,7 @@ const AdminPage = () => {
     return (
         <div className="bg-custom-gradient text-white">
             <div className='bg-black bg-opacity-50 min-h-screen'>
-                <nav className='flex items-center justify-between p-5 md:ml-10'>
+                <nav className='flex items-center justify-between p-4'>
                     <Link href="/">
                         <div className='flex items-center'>
                             <img src={logoImage} alt="BluBee Logo" className='w-12 h-12 mr-1' />
