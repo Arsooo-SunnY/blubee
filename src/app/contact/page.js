@@ -46,7 +46,7 @@ const ContactUs = () => {
     return (
         <div className="bg-custom-gradient text-white min-h-screen">
             <div className="bg-black bg-opacity-50 min-h-screen">
-                <nav className="flex items-center justify-between p-5 md:ml-10">
+                <nav className="flex items-center justify-between p-4">
                     <Link href="/">
                         <div className="flex items-center">
                             <img src={logoImage} alt="BluBee Logo" className="w-12 h-12 mr-1" />
@@ -102,7 +102,7 @@ const ContactUs = () => {
                     <h1 className="text-4xl font-semibold text-center">Contact Us</h1>
                     <form onSubmit={handleSubmit} className="space-y-8">
                         <div className="space-y-3">
-                            <label htmlFor="uname" className="text-lg font-medium">Enter your Full name: <span className="text-red-600">*</span></label><br/>
+                            <label htmlFor="uname" className="text-lg font-medium">Full name: <span className="text-red-600">*</span></label><br/>
                             <input
                                 type="text"
                                 name="uname"
@@ -116,7 +116,7 @@ const ContactUs = () => {
                             />
                         </div>
                         <div className="space-y-3">
-                            <label htmlFor="email" className="text-lg font-medium">Enter your Email Address: <span className="text-red-600">*</span></label><br/>
+                            <label htmlFor="email" className="text-lg font-medium">Email Address: <span className="text-red-600">*</span></label><br/>
                             <input
                                 type="email"
                                 name="email"
@@ -130,7 +130,7 @@ const ContactUs = () => {
                             />
                         </div>
                         <div className="space-y-3">
-                            <label htmlFor="phone" className="text-lg font-medium">Enter your Phone Number:</label><br/>
+                            <label htmlFor="phone" className="text-lg font-medium">Phone Number:</label><br/>
                             <input
                                 type="text"
                                 name="phone"
@@ -143,7 +143,7 @@ const ContactUs = () => {
                             />
                         </div>
                         <div className="space-y-3">
-                            <label htmlFor="message" className="text-lg font-medium">Enter your Message: <span className="text-red-600">*</span></label><br/>
+                            <label htmlFor="message" className="text-lg font-medium">Message: <span className="text-red-600">*</span></label><br/>
                             <textarea
                                 name="message"
                                 id="message"
