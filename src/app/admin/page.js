@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const AdminPage = () => {
 
@@ -46,6 +47,18 @@ const AdminPage = () => {
 
     return (
         <div className="bg-custom-gradient text-white">
+            
+            <Head>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCS52059SY"></script>
+                <script>
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-FCS52059SY');
+                    `}
+                </script>
+            </Head>
             <div className='bg-black bg-opacity-50 min-h-screen'>
                 <nav className='flex items-center justify-between p-4'>
                     <Link href="/">
