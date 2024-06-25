@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { supabase } from '../supabaseClient';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import Head from 'next/head';
 
 const ContactUs = () => {
     const logoImage = './BluBee.png';
@@ -45,6 +46,17 @@ const ContactUs = () => {
 
     return (
         <div className="bg-custom-gradient text-white min-h-screen">
+            <Head>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCS52059SY"></script>
+                <script>
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-FCS52059SY');
+                    `}
+                </script>
+            </Head>
             <div className="bg-black bg-opacity-50 min-h-screen">
                 <nav className="flex items-center justify-between p-4">
                     <Link href="/">
@@ -69,8 +81,8 @@ const ContactUs = () => {
                     </div>
                     <div className="hidden md:flex md:space-x-10 text-lg md:text-xl font-medium">
                         <Link href="/" className="block py-2 md:py-0">Home</Link>
-                        <Link href="/contact" className="block py-2 md:py-0 font-extrabold">Contact Us</Link>
                         <Link href="/about" className="block py-2 md:py-0">Founders Note</Link>
+                        <Link href="/contact" className="block py-2 md:py-0 font-extrabold">Contact Us</Link>
                     </div>
                 </nav>
 
@@ -91,8 +103,8 @@ const ContactUs = () => {
                             </button>
                             <div className="space-y-8 text-center text-white text-2xl">
                                 <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link><br/><br/>
-                                <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link><br/><br/>
                                 <Link href="/about" onClick={() => setMenuOpen(false)}>Founders Note</Link><br/><br/>
+                                <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link><br/><br/>
                             </div>
                         </motion.div>
                     )}
