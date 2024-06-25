@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
+import Head from "next/head";
 
 const AboutUs = () => {
     const logoImage = './BluBee.png';
@@ -15,6 +16,17 @@ const AboutUs = () => {
 
     return (
         <div className="bg-custom-gradient">
+            <Head>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCS52059SY"></script>
+                <script>
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-FCS52059SY');
+                    `}
+                </script>
+            </Head>
             <div className="bg-black bg-opacity-50 text-white min-h-screen">
                 <nav className='flex items-center justify-between p-4'>
                     <Link href="/">
@@ -39,8 +51,8 @@ const AboutUs = () => {
                     </div>
                     <div className={`md:flex hidden md:space-x-10 text-lg md:text-xl font-medium`}>
                         <Link href="/" className='block py-2 md:py-0'>Home</Link>
-                        <Link href="/contact" className='block py-2 md:py-0'>Contact Us</Link>
                         <Link href="/about" className='block py-2 md:py-0 font-extrabold'>Founders Note</Link>
+                        <Link href="/contact" className='block py-2 md:py-0'>Contact Us</Link>
                     </div>
                 </nav>
 
@@ -61,8 +73,8 @@ const AboutUs = () => {
                             </button>
                             <div className="space-y-8 text-center text-white text-2xl">
                                 <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link><br /><br />
-                                <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link><br /><br />
                                 <Link href="/about" onClick={() => setMenuOpen(false)}>Founders Note</Link><br /><br />
+                                <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link><br /><br />
                             </div>
                         </motion.div>
                     )}
