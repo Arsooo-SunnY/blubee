@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -35,8 +36,34 @@ export default function Home() {
     visible: { opacity: 1, x: 0 },
   };
 
+  useEffect(() => {
+    // Load Google Analytics script dynamically
+    const script1 = document.createElement('script');
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-FCS52059SY';
+    script1.async = true;
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FCS52059SY');
+    `;
+    document.head.appendChild(script2);
+
+    return () => {
+      // Clean up the script elements on component unmount
+      document.head.removeChild(script1);
+      document.head.removeChild(script2);
+    };
+  }, []);
+
   return (
     <div className="bg-cover bg-center min-h-screen relative" style={{ backgroundImage: `url(${bgImage})` }}>
+      <Head>
+        <title>BluBee</title>
+      </Head>
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <nav className='relative flex items-center justify-between p-4 z-10'>
         <div className='flex items-center'>
@@ -59,8 +86,8 @@ export default function Home() {
         </div>
         <div className={`hidden md:flex md:space-x-10 text-lg md:text-xl font-medium text-white`}>
           <Link href="/" className='block py-2 md:py-0 font-extrabold'>Home</Link>
-          <Link href="/contact" className='block py-2 md:py-0'>Contact Us</Link>
           <Link href="/about" className='block py-2 md:py-0'>Founders Note</Link>
+          <Link href="/contact" className='block py-2 md:py-0'>Contact Us</Link>
         </div>
       </nav>
       {menuOpen && (
@@ -78,8 +105,8 @@ export default function Home() {
             </svg>
           </button>
           <Link href="/" className='py-2' onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/contact" className='py-2' onClick={() => setMenuOpen(false)}>Contact Us</Link>
           <Link href="/about" className='py-2' onClick={() => setMenuOpen(false)}>Founders Note</Link>
+          <Link href="/contact" className='py-2' onClick={() => setMenuOpen(false)}>Contact Us</Link>
         </motion.div>
       )}
       <div className='relative z-10 flex flex-col md:flex-row mt-10 md:mt-20 p-5'>
